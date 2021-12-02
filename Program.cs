@@ -18,6 +18,7 @@ namespace Samlingsklasser
             Console.WriteLine("5. Tärningskast med SortedList (Övning 1).");
             Console.WriteLine("6. Queue-exempel.");
             Console.WriteLine("7. Stack-exempel.");
+            Console.WriteLine("8. Medelvärde.");
 
             //Läs in menyval
             Console.Write("Ange siffra för vad du vill göra: ");
@@ -46,6 +47,9 @@ namespace Samlingsklasser
                 case "7":
                     StackExempel();
                     break;
+                case "8":
+                    Medelvärde();
+                    break;
             }
 
             Console.ReadKey();
@@ -73,7 +77,6 @@ namespace Samlingsklasser
 
         static void DiceSortedList()
         {
-            //--------------------------------------------------------------------------------------
             //Skapa en SortedList med int som nyckel och int som värde
             SortedList<int, int> resultat = new SortedList<int, int>();
 
@@ -236,7 +239,46 @@ namespace Samlingsklasser
             {
                 Console.WriteLine("Värde: " + d);
             }
+        }
 
+
+        static void Medelvärde()
+        {
+            //Skapar en lista.
+            List<double> talLista = new List<double>();
+
+            //Ett bool-värde för om det inmatade talet är noll eller inte.
+            bool noll = false;
+
+            //Värde för den totala summan av alla tal i listan.
+            double totalSumma = 0;
+
+            //While-loop för så länge som bool-värdet är false (dvs att talet inte är noll).
+            while(noll == false)
+            {
+                //Registrarar ett tal som användaren matar in.
+                Console.Write("Mata in ett tal: ");
+                string tal1 = Console.ReadLine();
+                double tal2 = Convert.ToDouble(tal1);
+
+                //Om det inmatade talet är 0 beräknas medelvärdet av alla talen och skriver ut det.
+                if(tal2 == 0)
+                {
+                    noll = true;
+
+                    double medelvärde1 = totalSumma / talLista.Count;
+                    string medelvärde2 = Convert.ToString(medelvärde1);
+
+                    Console.WriteLine("Medelvärdet av alla talen är " + medelvärde2); 
+                }
+                //Om talet inte är noll läggs talet till i listan och adderar talet till den totala summan.
+                else
+                {
+                    talLista.Add(tal2);
+
+                    totalSumma = totalSumma + tal2;
+                }
+            }
         }
     }
 }

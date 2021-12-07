@@ -290,32 +290,26 @@ namespace Samlingsklasser
             //En lista för alla kort.
             List<string> KortLista = new List<string>();
 
-            //en loop för alla klöver kort utom ess, knekt, dam och kung.
-            for(int a = 1; a <= 9; a++)
+            //Loopar för att lägga till alla kort utom ess, knekt, dam och kung i listan.
+            for (int a = 1; a <= 9; a++)
             {
                 KortLista.Add(Convert.ToString("k" + a));
             }
-
-            //en loop för alla hjärter kort utom ess, knekt, dam och kung.
             for (int a = 1; a <= 9; a++)
             {
                 KortLista.Add(Convert.ToString("h" + a));
             }
-
-            //en loop för alla spader kort utom ess, knekt, dam och kung.
             for (int a = 1; a <= 9; a++)
             {
                 KortLista.Add(Convert.ToString("s" + a));
             }
-
-            //en loop för att lägga till alla kort utom ess, knekt, dam och kung i listan.
             for (int a = 1; a <= 9; a++)
             {
                 KortLista.Add(Convert.ToString("r" + a));
             }
 
             
-            //Lägger till ess, knekt, dam och kung till listan.
+            //Lägger till alla ess, knekt, dam och kung till listan.
             //Eftersom dessa kort är så få och har hyfsat stor skillnad mellan dom är det smidigare att inte använda loopar.
             KortLista.Add("kE");
             KortLista.Add("hE");

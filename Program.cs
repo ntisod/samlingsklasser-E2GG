@@ -19,6 +19,7 @@ namespace Samlingsklasser
             Console.WriteLine("6. Queue-exempel.");
             Console.WriteLine("7. Stack-exempel.");
             Console.WriteLine("8. Medelvärde.");
+            Console.WriteLine("9. Kortlek.");
 
             //Läs in menyval
             Console.Write("Ange siffra för vad du vill göra: ");
@@ -49,6 +50,9 @@ namespace Samlingsklasser
                     break;
                 case "8":
                     Medelvärde();
+                    break;
+                case "9":
+                    Kortlek();
                     break;
             }
 
@@ -278,6 +282,68 @@ namespace Samlingsklasser
 
                     totalSumma = totalSumma + tal2;
                 }
+            }
+        }
+
+        static void Kortlek()
+        {
+            //En lista för alla kort.
+            List<string> KortLista = new List<string>();
+
+            //en loop för alla klöver kort utom ess, knekt, dam och kung.
+            for(int a = 1; a <= 9; a++)
+            {
+                KortLista.Add(Convert.ToString("k" + a));
+            }
+
+            //en loop för alla hjärter kort utom ess, knekt, dam och kung.
+            for (int a = 1; a <= 9; a++)
+            {
+                KortLista.Add(Convert.ToString("h" + a));
+            }
+
+            //en loop för alla spader kort utom ess, knekt, dam och kung.
+            for (int a = 1; a <= 9; a++)
+            {
+                KortLista.Add(Convert.ToString("s" + a));
+            }
+
+            //en loop för att lägga till alla kort utom ess, knekt, dam och kung i listan.
+            for (int a = 1; a <= 9; a++)
+            {
+                KortLista.Add(Convert.ToString("r" + a));
+            }
+
+            
+            //Lägger till ess, knekt, dam och kung till listan.
+            //Eftersom dessa kort är så få och har hyfsat stor skillnad mellan dom är det smidigare att inte använda loopar.
+            KortLista.Add("kE");
+            KortLista.Add("hE");
+            KortLista.Add("sE");
+            KortLista.Add("rE");
+
+            KortLista.Add("kKn");
+            KortLista.Add("hKn");
+            KortLista.Add("sKn");
+            KortLista.Add("rKn");
+
+            KortLista.Add("sD");
+            KortLista.Add("hD");
+            KortLista.Add("sD");
+            KortLista.Add("rD");
+
+            KortLista.Add("sKu");
+            KortLista.Add("hKu");
+            KortLista.Add("sKu");
+            KortLista.Add("rKu");
+
+            var random = new Random();
+
+            for (int a = 1; a <= 52; a++)
+            {
+                int kort = random.Next(KortLista.Count);
+                Console.WriteLine(KortLista[kort]);
+                KortLista.Remove(KortLista[kort]);
             }
         }
     }
